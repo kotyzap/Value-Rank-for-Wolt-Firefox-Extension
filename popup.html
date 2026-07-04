@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ValueRank for W</title>
+  <style>
+    :root[data-theme="light"] {
+      --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280;
+      --card: #f4f5f7; --accent: #00a6cb; --border: #e3e6ea;
+    }
+    :root[data-theme="dark"] {
+      --bg: #1c1f24; --fg: #f1f3f5; --muted: #9aa0a6;
+      --card: #272b31; --accent: #2bc3e3; --border: #3a3f46;
+    }
+    * { box-sizing: border-box; }
+    body {
+      width: 260px; margin: 0; padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg); color: var(--fg);
+    }
+    header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    h1 { font-size: 14px; font-weight: 700; margin: 0; }
+    .theme-btn {
+      border: 1px solid var(--border); background: var(--card); color: var(--fg);
+      border-radius: 8px; padding: 4px 8px; font-size: 12px; cursor: pointer;
+    }
+    .row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 12px 14px;
+    }
+    .row-label { font-size: 13px; font-weight: 600; }
+    select {
+      border: 1px solid var(--border); background: var(--bg); color: var(--fg);
+      border-radius: 8px; padding: 5px 8px; font-size: 12px; cursor: pointer;
+    }
+    .hint { margin-top: 10px; font-size: 11px; color: var(--muted); line-height: 1.5; }
+    .switch { position: relative; display: inline-block; width: 46px; height: 26px; flex: 0 0 46px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; inset: 0; background: #c4c8cd; border-radius: 9999px; transition: .2s; }
+    .slider::before { content: ""; position: absolute; height: 20px; width: 20px; left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: .2s; }
+    input:checked + .slider { background: var(--accent); }
+    input:checked + .slider::before { transform: translateX(20px); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ValueRank for W</h1>
+    <button id="themeToggle" class="theme-btn" type="button">🌙 Dark</button>
+  </header>
+
+  <div class="row">
+    <span class="row-label">Enable on Wolt</span>
+    <label class="switch">
+      <input type="checkbox" id="enabledToggle" />
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="row" style="margin-top:8px;">
+    <span class="row-label">Best-value cards</span>
+    <select id="topNSelect">
+      <option value="4">Top 4</option>
+      <option value="8">Top 8</option>
+      <option value="12">Top 12</option>
+      <option value="16">Top 16</option>
+      <option value="20">Top 20</option>
+    </select>
+  </div>
+
+  <p class="hint">
+    On any Wolt category page it scans the items once, then marks each card with
+    its <b>price per unit</b> and value rank — 🥇🥈🥉 for the 3 cheapest of each
+    unit and <b>rank/total</b> (e.g. 15/30) for the rest. Nothing is reordered,
+    so add-to-cart and the info modal keep working. Category pages only
+    (URLs with <code>/items/</code>).
+  </p>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "ValueRank for W",
+  "version": "1.25.0",
+  "description": "Ranks Wolt store items by best price per unit (Kč/kg, €/l ...) and shows the math on each card.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "*://*.wolt.com/*",
+    "*://*.wolt.cz/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_title": "ValueRank for W",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.wolt.com/*",
+        "*://*.wolt.cz/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "valuerank-for-wolt@kotyza.com",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  }
+}

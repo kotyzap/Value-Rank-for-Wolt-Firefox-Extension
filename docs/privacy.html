@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — ValueRank for W (Firefox)</title>
+<meta name="description" content="Privacy policy for the ValueRank for W Firefox extension. No data is collected, stored remotely, or shared.">
+<link rel="icon" type="image/png" href="img/icon128.png">
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --bg-alt: #ffffff;
+    --text: #1a1d21;
+    --text-muted: #5b6470;
+    --border: #e3e6ea;
+    --accent: #ff6611;
+    --accent-dark: #d54e05;
+    --accent-soft: #fff0e6;
+    --code-bg: #eef1f4;
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.06), 0 8px 24px rgba(20, 24, 30, 0.06);
+    --radius: 14px;
+  }
+
+  [data-theme="dark"] {
+    --bg: #14161a;
+    --bg-alt: #1c1f24;
+    --text: #f0f2f4;
+    --text-muted: #a2a9b3;
+    --border: #2c3038;
+    --accent: #ff8a4c;
+    --accent-dark: #ffab77;
+    --accent-soft: #3a2418;
+    --code-bg: #23262c;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  a { color: var(--accent-dark); }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: saturate(180%) blur(8px);
+  }
+
+  header.site .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    max-width: 1040px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 17px;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .brand img { width: 28px; height: 28px; border-radius: 7px; }
+
+  .theme-toggle {
+    border: 1px solid var(--border);
+    background: var(--bg-alt);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .theme-toggle:hover { border-color: var(--accent); }
+
+  main { padding: 48px 0 80px; }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+    background: var(--accent-soft);
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 32px;
+    letter-spacing: -0.02em;
+    margin: 0 0 6px;
+  }
+
+  .updated {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 0 0 36px;
+  }
+
+  h2 {
+    font-size: 19px;
+    margin: 36px 0 10px;
+    letter-spacing: -0.01em;
+  }
+
+  p, li { font-size: 15px; color: var(--text); }
+  p.muted, li.muted { color: var(--text-muted); }
+
+  .card {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    margin-bottom: 8px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  th { color: var(--text-muted); font-weight: 600; }
+
+  code {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-size: 13px;
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  footer a { color: var(--text-muted); text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="img/icon128.png" alt="ValueRank for W icon">
+      <span>ValueRank for W</span>
+    </a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <span id="themeIcon">🌙</span> <span id="themeLabel">Dark</span>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+  <span class="eyebrow">Privacy Policy</span>
+  <h1>Privacy Policy for ValueRank for W</h1>
+  <p class="updated">Last updated: July 4, 2026 &middot; Firefox build</p>
+
+  <div class="card">
+    <p><strong>Short version:</strong> ValueRank for W does not collect, store, transmit, or sell any personal data. It has no servers, no analytics, and no remote code. Everything it does happens locally, inside your browser.</p>
+  </div>
+
+  <h2>What the extension does</h2>
+  <p>ValueRank for W is a Firefox extension that runs only on <code>wolt.com</code> and <code>wolt.cz</code>. On a Wolt category page it reads the price and quantity already displayed on each product card, computes the price per unit (per kg, litre, or piece), and adds a badge and a "Top best value" strip to help you compare products. It does not add items to your cart, submit orders, or modify prices.</p>
+
+  <h2>Data collection</h2>
+  <p>The extension does not collect any data. Specifically, it does not:</p>
+  <ul>
+    <li>Send any information to a server operated by the developer or any third party — the extension has no backend.</li>
+    <li>Use analytics, telemetry, crash reporting, or advertising SDKs.</li>
+    <li>Track your browsing history, purchases, or activity on Wolt or any other site.</li>
+    <li>Collect personal information such as your name, address, email, or payment details.</li>
+    <li>Share, sell, or transfer any data to third parties.</li>
+  </ul>
+
+  <h2>Local storage</h2>
+  <p>The extension uses Firefox's <code>storage</code> API to save a small set of preferences <strong>only on your own device</strong>:</p>
+  <table>
+    <tr><th>Setting</th><th>Purpose</th></tr>
+    <tr><td>Enabled / disabled</td><td>Whether sorting and badges are turned on</td></tr>
+    <tr><td>Best-value count</td><td>How many cards appear in the Top strip (Top 4 / 8 / 12 / 16 / 20)</td></tr>
+    <tr><td>Popup theme</td><td>Light or dark appearance of the toolbar popup</td></tr>
+  </table>
+  <p class="muted">This data never leaves your device and is not visible to the developer.</p>
+
+  <h2>Permissions</h2>
+  <table>
+    <tr><th>Permission</th><th>Why it's needed</th></tr>
+    <tr><td><code>storage</code></td><td>Saves the preferences above locally on your device.</td></tr>
+    <tr><td>Background script + tab access</td><td>Lights up the toolbar icon only when you're on a Wolt page, and greys it out elsewhere, by checking the active tab's address. It does not read or collect page content.</td></tr>
+    <tr><td>Host access to <code>wolt.com</code> / <code>wolt.cz</code></td><td>Lets the content script read the prices and sizes already shown on the page so it can add per-unit badges. It does not run on any other site.</td></tr>
+  </table>
+
+  <h2>Remote code</h2>
+  <p>The extension does not load or execute any remote code. All JavaScript ships inside the installed package.</p>
+
+  <h2>Children's privacy</h2>
+  <p>The extension is not directed at children and does not knowingly collect information from anyone, regardless of age, because it collects no information at all.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If this policy ever changes — for example, if a future version adds a feature that involves data collection — this page will be updated and the "Last updated" date above will reflect the change.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy or the extension can be sent to <a href="mailto:pavel@kotyza.com">pavel@kotyza.com</a>.</p>
+</main>
+
+<footer>
+  <div class="wrap" style="max-width:1040px;">
+    <p>ValueRank for W is an independent project and is not affiliated with Wolt. &middot; <a href="index.html">Back to extension page</a></p>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+  const label = document.getElementById('themeLabel');
+  const root = document.documentElement;
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      root.setAttribute('data-theme', 'dark');
+      icon.textContent = '☀️';
+      label.textContent = 'Light';
+    } else {
+      root.removeAttribute('data-theme');
+      icon.textContent = '🌙';
+      label.textContent = 'Dark';
+    }
+  }
+
+  const saved = localStorage.getItem('vr-theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(saved || (prefersDark ? 'dark' : 'light'));
+
+  toggle.addEventListener('click', () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    const next = isDark ? 'light' : 'dark';
+    applyTheme(next);
+    localStorage.setItem('vr-theme', next);
+  });
+</script>
+
+</body>
+</html>

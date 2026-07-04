@@ -1,0 +1,119 @@
+/* Price-per-unit badge injected onto each Wolt product card (top-left). */
+.wups-badge {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;          /* same width as the "xx/xx" badges */
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #ffffff;
+  background: #00a6cb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  white-space: nowrap;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Items with no recognizable unit get a neutral, low-key badge. */
+.wups-badge--muted { background: #9aa0a6; }
+
+/* Wolt's own bottom-right per-unit price, recolored blue (price shown once). */
+.wups-pu { color: #00a6cb !important; font-weight: 700 !important; }
+
+/* Top-3 cheapest of a unit get medal-colored badges; bigger, centered medal. */
+.wups-badge--rank1,
+.wups-badge--rank2,
+.wups-badge--rank3 { font-size: 14px; line-height: 1; }
+.wups-badge--rank1 { background: #f5c518; color: #1a1a1a; } /* gold   */
+.wups-badge--rank2 { background: #c9ccd1; color: #1a1a1a; } /* silver */
+.wups-badge--rank3 { background: #cd7f32; color: #ffffff; } /* bronze */
+
+/* Colored ring around the top-10 best value cards (follows rounded corners). */
+.wups-top--gold   { box-shadow: 0 0 0 3px #f5c518 !important; border-radius: 12px; }
+.wups-top--silver { box-shadow: 0 0 0 3px #c9ccd1 !important; border-radius: 12px; }
+.wups-top--bronze { box-shadow: 0 0 0 3px #cd7f32 !important; border-radius: 12px; }
+.wups-top--value  { box-shadow: 0 0 0 3px #00a6cb !important; border-radius: 12px; } /* top 4-10: blue */
+
+/* Status pill shown while scanning the category to build the ranking. */
+#wups-status {
+  position: fixed; top: 12px; left: 50%; transform: translateX(-50%);
+  z-index: 2147483000; padding: 8px 16px; border-radius: 9999px;
+  background: #00a6cb; color: #fff; font-size: 13px; font-weight: 700;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* "Pick a category" tip shown on the mixed All-items view. */
+#wups-hint {
+  box-sizing: border-box; width: 100%;
+  display: flex; align-items: center; gap: 10px;
+  margin: 0 0 14px; padding: 12px 16px;
+  background: #eaf8fc; border-left: 4px solid #00a6cb; border-radius: 8px;
+  color: #00657d; font-size: 13px; font-weight: 600; line-height: 1.4;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+#wups-hint b { font-weight: 800; }
+#wups-hint .wups-hint-ico { font-size: 16px; }
+
+/* Top best-value cards (cloned real cards) shown above the product list. */
+/* Full-width light-blue rectangle (no border/radius/side padding) so the cards
+   line up exactly with the product grid below — the box never "steals" px. */
+#wups-topstrip {
+  box-sizing: border-box; width: 100%;
+  margin: 0 0 14px; padding: 12px 0;
+  background: #eaf8fc; border: none; border-radius: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+#wups-topstrip * { box-sizing: border-box; }
+#wups-topstrip .wups-top-head {
+  color: #00657d; font-weight: 800; font-size: 14px; margin: 0 0 10px;
+}
+/* Extra gap before each subsequent unit section (kg → l → ks). */
+#wups-topstrip .wups-top-grid + .wups-top-head { margin-top: 18px; }
+#wups-topstrip .wups-top-grid {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;
+  width: 100%; align-items: start; /* don't stretch rows → no clipped footer */
+}
+/* Each tile is a clone of a real Wolt card — keep its styling, make it clickable,
+   and stop its inner links/buttons from firing (we open the product ourselves). */
+#wups-topstrip .wups-clone { position: relative; cursor: pointer; background: #fff; border-radius: 12px; }
+/* The clone's "+" add button is non-functional (open via tile click), so cover
+   it: put a taller rank badge over the top-right corner, content centered. */
+#wups-topstrip .wups-badge {
+  left: auto; right: 6px; top: 6px; transform: none;
+  min-width: 46px; height: 34px; padding: 0 10px; border-radius: 10px;
+  font-size: 14px; align-items: center; justify-content: center; text-align: center;
+}
+#wups-topstrip .wups-badge--rank1,
+#wups-topstrip .wups-badge--rank2,
+#wups-topstrip .wups-badge--rank3 { font-size: 14px; }
+/* Let the card size to its content (Wolt sets height:100% / min-height for its
+   own fixed-row grid, which clips the footer inside our auto-height grid). */
+/* size the cloned CARD to fill the cell, but NOT our overlay badge */
+#wups-topstrip .wups-clone > :not(.wups-badge) {
+  width: 100%; box-sizing: border-box; list-style: none; margin: 0;
+  height: auto !important; min-height: 0 !important; overflow: visible !important;
+}
+#wups-topstrip .wups-clone * { pointer-events: none !important; }
+
+/* Bold blinking highlight when scrolled to an item from the Top-8 strip. */
+.wups-flash {
+  outline: 4px solid #ff3b30 !important;
+  outline-offset: 2px;
+  border-radius: 12px;
+  animation: wups-blink 0.45s ease-in-out 7;
+}
+@keyframes wups-blink {
+  0%, 100% { outline-color: #ff3b30; }
+  50%      { outline-color: rgba(255, 59, 48, 0); }
+}
