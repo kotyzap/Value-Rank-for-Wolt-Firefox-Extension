@@ -1,4 +1,13 @@
-# ValueRank for W — Firefox build
+# ValueRank for Wolt — Firefox Extension #
+
+## See the real price per kg, litre, or piece on Wolt — instantly. ##
+ValueRank for W ranks products on wolt.com and wolt.cz by price per kg, litre, or piece, <BR>
+and stamps the math right on each card — so the best value always stands out.
+
+<div align="center">
+   <img width="1632" height="1051" alt="Screenshot 2026-07-04 at 19 20 30" src="https://github.com/user-attachments/assets/3d6b92a4-c221-4a1b-a2bc-7d57930e3cd6" />
+
+</div>
 
 This folder is a Firefox port of the Chrome extension one level up. Ranking
 logic, popup, and styling are identical; only two things changed to work on
